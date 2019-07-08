@@ -6,10 +6,16 @@ class TreeNode{
     this.parent = null;
   }
 
+  /**
+   * returns weather the treeNode is a root node
+   */
   isRoot(){
     return this.parent == null;
   }
 
+  /**
+   * inserts data into the binary tree in the correct order  
+   */
   insertInOrder(data){
     if(data <= this.data){
       if(this.left == null){
@@ -29,6 +35,10 @@ class TreeNode{
     }
   }
 
+  /** 
+    returns leaf node that contains the provided data
+    else is reuturns null
+  */
   search(data){
     if(data == this.data){
       return this;
@@ -37,15 +47,23 @@ class TreeNode{
       return this.left != null? this.left.search(data): null ;
     }
     else{
-      return this.right !=null? this.right.search(data): null;
+      return this.right != null? this.right.search(data): null;
     }
   }
 
+/**
+ * Inserts the given node onto the lefthand side of the current 
+ * node
+ */
   _insertLeftChild(treeNode){
     this.left = treeNode;
     treeNode.parent = this;
   }
 
+ /**
+ * Inserts the given node onto the righthand side of the current 
+ * node
+ */
   _insertRightChild(treeNode){
     this.right = treeNode;
     treeNode.parent = this;
